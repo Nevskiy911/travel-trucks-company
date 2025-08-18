@@ -1,0 +1,33 @@
+:root {
+    /* Colors */
+
+    --main: #101828;
+    --text: #475467;
+    --background: #cdcdcd;
+    --white: #fff;
+    --inputs: #f7f7f7;
+    --badges: #f2f4f7;
+    --gray: #6c717b;
+    --gray-light: #dadde1;
+    --button: #e44848;
+    --button-hover: #d84343;
+    --rating: #ffc531;
+
+    /* Fonts */
+
+    --font-main: 'Inter', sans-serif;
+
+    --weight-main: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+
+    --size-main: 16px;
+    --size-h3: 20px;
+    --size-h2: 24px;
+    --size-h1: 48px;
+
+    --height-main: 1.5;
+    --height-h1: 0.67;
+    --height-h2: 1.33;
+    --height-h3: 1.2;
+}
