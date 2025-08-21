@@ -1,0 +1,14 @@
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.label {
+    text-transform: capitalize;
+}

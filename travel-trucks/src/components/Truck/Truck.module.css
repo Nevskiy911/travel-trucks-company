@@ -1,0 +1,74 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--gray-light);
+    border-radius: 20px;
+    padding: 24px;
+    width: 888px;
+    height: 368px;
+    transition: transform 0.2s ease-in-out;
+    background: var(--white);
+}
+
+.card:hover {
+    transform: scale(0.99);
+}
+
+.image {
+    border-radius: 10px;
+    width: 292px;
+    height: 320px;
+    object-fit: cover;
+    margin-right: 24px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mainText {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.price {
+    margin-right: 13px;
+}
+
+.ratingAndLocation {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.iconLocation {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: 24px;
+    color: var(--text);
+}
+
+.features {
+    margin-bottom: 24px;
+    max-width: 395px;
+}

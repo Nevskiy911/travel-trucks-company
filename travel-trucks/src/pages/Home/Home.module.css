@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    background-image: image-set(url('/src/assets/images/bg.webp') 1x,
+            url('/src/assets/images/bg-2.webp') 2x);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: var(--inputs);
+}
+
+.home {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px;
+    width: 100%;
+}
+
+.title {
+    margin-bottom: 16px;
+
+}
+
+.description {
+    margin-bottom: 40px;
+}

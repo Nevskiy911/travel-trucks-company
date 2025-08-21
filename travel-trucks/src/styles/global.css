@@ -5,7 +5,7 @@ body {
     font-weight: var(--weight-main);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--background);
+    background-color: var(--white);
     color: var(--main);
 }
 
@@ -24,7 +24,7 @@ h2 {
 h3 {
     line-height: var(--height-h3);
     font-size: var(--size-h3);
-    font-weight: var(--weight-medium);
+    font-weight: var(--weight-semibold);
 }
 
 button {
@@ -34,6 +34,7 @@ button {
     font-weight: var(--weight-medium);
     color: var(--main);
     cursor: pointer;
+    letter-spacing: -0.01em;
 }
 
 .container {

@@ -1,0 +1,7 @@
+.button {
+    padding: 14px 18px;
+    border-radius: 100px;
+    height: 48px;
+    background: var(--badges);
+    mix-blend-mode: multiply;
+}

@@ -1,0 +1,15 @@
+.filters {
+    width: 360px;
+
+    padding: 16px;
+
+    margin-right: 64px;
+}
+
+.location {
+    color: var(--gray);
+}
+
+.description {
+    color: var(--text)
+}
