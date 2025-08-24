@@ -12,7 +12,7 @@
 }
 
 .subtitle {
-    color: var(--gray)
+    color: var(--gray);
 }
 
 .form {
@@ -100,7 +100,7 @@
     width: 36px;
     height: 32px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s ease-in-out;
     font-weight: var(--weight-main);
     font-size: 14px;
 }

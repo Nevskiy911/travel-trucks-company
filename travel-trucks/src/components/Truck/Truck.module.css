@@ -36,6 +36,14 @@
     margin-bottom: 8px;
 }
 
+.name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+    display: inline-block;
+}
+
 .price {
     margin-right: 13px;
 }

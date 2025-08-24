@@ -1,14 +1,23 @@
-import { useState } from "react";
-// import BookingForm from "../BookingForm/BookingForm";
-// import FeaturesList from "../../components/FeaturesList/FeaturesList";
-// import Reviews from "../Reviews/Reviews";
+//
+
 import s from "./Details.module.css";
 import FeaturesList from "../../components/FeaturesList/FeaturesList";
 import BookingForm from "../../components/Booking/BookingForm";
 import VehicleDetails from "../../components/VehicleDetails/VehicleDetails";
+import ReviewsList from "../../components/ReviewsList/ReviewsList";
+import { useEffect, useRef } from "react";
 
-function DetailsBottom({ camper }) {
-  const [activeTab, setActiveTab] = useState("features");
+function DetailsBottom({ camper, activeTab, setActiveTab }) {
+  const reviewsRef = useRef(null);
+
+  useEffect(() => {
+    if (activeTab === "reviews" && reviewsRef.current) {
+      const timer = setTimeout(() => {
+        reviewsRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [activeTab]);
 
   return (
     <div>
@@ -26,12 +35,29 @@ function DetailsBottom({ camper }) {
           Reviews
         </button>
       </div>
+
+      <div className={s.line}></div>
+
       <div className={s.bottom}>
-        <div className={s.bottomLeft}>
-          <FeaturesList camper={camper} showAll />
-          <div className={s.vehicle}>
-            <VehicleDetails camper={camper} />
-          </div>
+        <div
+          className={`${s.bottomLeft} ${
+            activeTab === "features" ? s.featuresBg : s.reviewsBg
+          }`}
+        >
+          {activeTab === "features" && (
+            <>
+              <FeaturesList camper={camper} showAll />
+              <div className={s.vehicle}>
+                <VehicleDetails camper={camper} />
+              </div>
+            </>
+          )}
+
+          {activeTab === "reviews" && (
+            <div ref={reviewsRef}>
+              <ReviewsList reviews={camper.reviews} />
+            </div>
+          )}
         </div>
 
         <BookingForm />

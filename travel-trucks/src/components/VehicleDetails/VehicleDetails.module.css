@@ -1,0 +1,27 @@
+.vehicleDetails {
+    width: 527px;
+    height: auto;
+}
+
+.title {
+    margin-bottom: 24px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray-light);
+    margin-bottom: 24px;
+}
+
+.specItem {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--weight-medium);
+}
+
+.specList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

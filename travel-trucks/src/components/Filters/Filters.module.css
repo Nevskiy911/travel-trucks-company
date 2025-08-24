@@ -1,15 +1,94 @@
 .filters {
     width: 360px;
-
-    padding: 16px;
-
     margin-right: 64px;
 }
 
-.location {
+.description {
+    color: var(--text);
+    font-weight: var(--weight-medium);
+}
+
+.locationTitle {
+    color: var(--gray);
+    margin-bottom: 8px;
+}
+
+.iconLocation {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdownWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 56px;
+    background: var(--inputs);
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.dropdownList {
     color: var(--gray);
 }
 
-.description {
-    color: var(--text)
+.checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.checkItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.locationBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    color: var(--main);
+    margin-left: 18px;
+}
+
+.iconLocation {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.dropdownItem {
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.dropdownItem:hover {
+    background-color: #eee;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray-light);
+    margin: 24px 0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+.gridTop {
+    margin-bottom: 32px;
+}
+
+.gridBottom {
+    margin-bottom: 40px;
 }

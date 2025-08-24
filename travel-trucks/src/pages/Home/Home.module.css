@@ -7,17 +7,16 @@
             url('/src/assets/images/bg-2.webp') 2x);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-
     color: var(--inputs);
 }
 
 .home {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 64px;
+    padding-left: 64px;
     width: 100%;
 }
+
 
 .title {
     margin-bottom: 16px;

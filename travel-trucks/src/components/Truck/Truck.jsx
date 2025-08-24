@@ -19,14 +19,22 @@ function Truck({ camper }) {
       </div>
       <div className={s.content}>
         <div className={s.mainText}>
-          <h2>{camper.name}</h2>
+          <h2 className={s.name}>{camper.name}</h2>
           <h2 className={s.price}>
             {"\u20AC"}
             {camper.price.toFixed(2)}
           </h2>
         </div>
         <div className={s.ratingAndLocation}>
-          <Rating rating={camper.rating} reviewsCount={camper.reviews.length} />
+          <Link
+            to={`/catalog/${camper.id}?tab=reviews`}
+            className={s.ratingLink}
+          >
+            <Rating
+              rating={camper.rating}
+              reviewsCount={camper.reviews.length}
+            />
+          </Link>
           <div className={s.location}>
             <svg className={s.iconLocation}>
               <use href={`${sprite}#icon-location`} />

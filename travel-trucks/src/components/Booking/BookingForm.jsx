@@ -9,11 +9,26 @@ import "react-toastify/dist/ReactToastify.css";
 import s from "./BookingForm.module.css";
 import Button from "../Button/Button";
 
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const BookingSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
+  email: Yup.string()
+    .required("Email is required")
+    .test("is-valid-email", "Email is invalid", (value) =>
+      value ? emailRegex.test(value) : false
+    ),
   bookingDate: Yup.date()
-    .min(new Date(), "Date cannot be in the past")
+    .transform((value) => {
+      if (!value) return value;
+      const d = new Date(value);
+      d.setHours(0, 0, 0, 0);
+      return d;
+    })
+    .min(today, "Date cannot be in the past")
     .required("Booking date is required"),
 });
 
@@ -36,7 +51,7 @@ function BookingForm() {
 
   return (
     <div className={s.wrapper}>
-      <h2 className={s.title}>Book your campervan now</h2>
+      <h3 className={s.title}>Book your campervan now</h3>
       <p className={s.subtitle}>
         Stay connected! We are always ready to help you.
       </p>
