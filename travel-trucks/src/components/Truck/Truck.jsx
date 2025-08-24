@@ -2,12 +2,14 @@ import s from "./Truck.module.css";
 import FeaturesList from "../FeaturesList/FeaturesList";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import Button from "../Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Location from "../Location/Location";
 import sprite from "../../assets/icons/sprite.svg";
 import Rating from "../Rating/Rating";
 
 function Truck({ camper }) {
+  const location = useLocation(); // поточний URL
+
   return (
     <div className={s.card}>
       <div>
@@ -25,9 +27,14 @@ function Truck({ camper }) {
             {camper.price.toFixed(2)}
           </h2>
         </div>
+
         <div className={s.ratingAndLocation}>
+          {/* Зберігаємо поточні фільтри в URL при переході на відгуки */}
           <Link
-            to={`/catalog/${camper.id}?tab=reviews`}
+            to={`/catalog/${camper.id}?tab=reviews&${location.search.replace(
+              "?",
+              ""
+            )}`}
             className={s.ratingLink}
           >
             <Rating
@@ -35,6 +42,7 @@ function Truck({ camper }) {
               reviewsCount={camper.reviews.length}
             />
           </Link>
+
           <div className={s.location}>
             <svg className={s.iconLocation}>
               <use href={`${sprite}#icon-location`} />
@@ -42,13 +50,17 @@ function Truck({ camper }) {
             <Location location={camper.location} />
           </div>
         </div>
+
         <div className={s.description}>{camper.description}</div>
         <div className={s.features}>
           <FeaturesList camper={camper} limit={2} />
         </div>
         <div>
-          <Link to={`/catalog/${camper.id}`} rel="noopener noreferrer">
-            <Button children={`Show more`} />
+          <Link
+            to={`/catalog/${camper.id}?${location.search.replace("?", "")}`}
+            rel="noopener noreferrer"
+          >
+            <Button>Show more</Button>
           </Link>
         </div>
       </div>

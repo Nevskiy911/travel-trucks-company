@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCamperById } from "../../features/campers/campersAPI";
 import Rating from "../../components/Rating/Rating";
@@ -10,16 +10,8 @@ import Loader from "../../components/Loader/Loader";
 
 function Details() {
   const { id } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initialTab = searchParams.get("tab") || "features";
-
   const [camper, setCamper] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState(initialTab);
-
-  useEffect(() => {
-    setSearchParams({ tab: activeTab });
-  }, [activeTab, setSearchParams]);
 
   useEffect(() => {
     getCamperById(id)
@@ -33,15 +25,10 @@ function Details() {
   return (
     <div className={s.details}>
       <h2>{camper.name}</h2>
-
       <div className={s.ratingAndLocation}>
-        <div
-          style={{ cursor: "pointer" }}
-          onClick={() => setActiveTab("reviews")}
-        >
+        <div style={{ cursor: "pointer" }}>
           <Rating rating={camper.rating} reviewsCount={camper.reviews.length} />
         </div>
-
         <div className={s.location}>
           <svg className={s.iconLocation}>
             <use href={`${sprite}#icon-location`} />
@@ -49,12 +36,10 @@ function Details() {
           <Location location={camper.location} />
         </div>
       </div>
-
       <h2>
         {"\u20AC"}
         {camper.price.toFixed(2)}
       </h2>
-
       <div className={s.gallery}>
         {camper.gallery?.map((image, index) => (
           <img
@@ -65,14 +50,8 @@ function Details() {
           />
         ))}
       </div>
-
       <p className={s.description}>{camper.description}</p>
-
-      <DetailsBottom
-        camper={camper}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
+      <DetailsBottom camper={camper} />
     </div>
   );
 }
