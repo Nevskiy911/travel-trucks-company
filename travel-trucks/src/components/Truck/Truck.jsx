@@ -8,7 +8,7 @@ import sprite from "../../assets/icons/sprite.svg";
 import Rating from "../Rating/Rating";
 
 function Truck({ camper }) {
-  const location = useLocation(); // поточний URL
+  const location = useLocation();
 
   return (
     <div className={s.card}>
@@ -29,7 +29,6 @@ function Truck({ camper }) {
         </div>
 
         <div className={s.ratingAndLocation}>
-          {/* Зберігаємо поточні фільтри в URL при переході на відгуки */}
           <Link
             to={`/catalog/${camper.id}?tab=reviews&${location.search.replace(
               "?",
